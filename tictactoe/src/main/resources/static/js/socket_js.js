@@ -18,7 +18,7 @@ function connectToSocket(gameId) {
 function create_game() {
     let login = document.getElementById("playerName").value;
     if (login == null || login === '') {
-        alert("Wprowadź nazwę użytkownika");
+        alert("Insert your name");
     } else {
         $.ajax({
             url: url + "/game/start",
@@ -30,10 +30,10 @@ function create_game() {
             }),
             success: function (data) {
                 gameId = data.gameId;
-                playerType = 'O';
+                playerType = "X";
                 reset();
                 connectToSocket(gameId);
-                alert("Id stworzonej gry: " + data.gameId);
+                alert("Id of the game: " + data.gameId);
                 gameOn = true;
             },
             error: function (error) {
@@ -47,7 +47,7 @@ function create_game() {
 function connectToRandom() {
     let login = document.getElementById("playerName").value;
     if (login == null || login === '') {
-        alert("Wprowadź nazwę użytkownika");
+        alert("Insert your name");
     } else {
         $.ajax({
             url: url + "/game/connect/random",
@@ -59,10 +59,10 @@ function connectToRandom() {
             }),
             success: function (data) {
                 gameId = data.gameId;
-                playerType = 'X';
+                playerType = "O";
                 reset();
                 connectToSocket(gameId);
-                alert("Grasz przeciwko: " + data.player1.playerName);
+                alert("You are playing vs: " + data.player1.playerName);
             },
             error: function (error) {
                 console.log(error);
@@ -74,11 +74,11 @@ function connectToRandom() {
 function connectToSpecificGame() {
     let login = document.getElementById("login").value;
     if (login == null || login === '') {
-        alert("Wprowadź nazwę użytkownika");
+        alert("Insert your name");
     } else {
         let gameId = document.getElementById("game_id").value;
         if (gameId == null || gameId === '') {
-            alert("Wpisz poprawne id gry");
+            alert("Paste correct game id");
         }
         $.ajax({
             url: url + "/game/connect",
@@ -93,10 +93,10 @@ function connectToSpecificGame() {
             }),
             success: function (data) {
                 gameId = data.gameId;
-                playerType = 'O';
+                playerType = "O";
                 reset();
                 connectToSocket(gameId);
-                alert("Grasz przeciwko: " + data.player1.playerName);
+                alert("You are playing vs: " + data.player1.playerName);
             },
             error: function (error) {
                 console.log(error);

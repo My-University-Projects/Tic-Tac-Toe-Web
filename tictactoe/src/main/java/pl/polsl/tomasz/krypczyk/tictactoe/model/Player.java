@@ -34,4 +34,15 @@ public class Player {
         this.positions.add(position);
 
     }
+
+    public String positionsToString(){
+        String positionsToString = "";
+        if(this.positions.isEmpty() == true){
+            return positionsToString;
+        }
+        for(Integer el : this.positions){
+            positionsToString += (el.toString() + " ");
+        }
+        return positionsToString;
+    }
 }

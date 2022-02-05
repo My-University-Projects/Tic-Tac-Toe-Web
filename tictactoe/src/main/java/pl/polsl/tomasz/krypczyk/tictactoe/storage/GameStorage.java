@@ -14,6 +14,7 @@ public class GameStorage {
      * field contains games
      */
     private static Map<String, Game> games;
+
     /**
      * field that is instance of the game storage object
      */

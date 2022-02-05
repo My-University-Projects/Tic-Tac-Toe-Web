@@ -19,27 +19,27 @@
 <body>
 <div class="text-center" id="box">
     <header>
-        <h1>Kółko i Krzyżyk</h1>
+        <h1>Tic Tac Toe</h1>
     </header>
     ---------------------------------------------------------------------------
     <br/>
-    <button onclick="create_game()">Stwórz nową grę </button>
+    <button onclick="create_game()">Create new game </button>
     <br/>
     ---------------------------------------------------------------------------
     <br/>
-    <input id="playerName" placeholder="Wpisz swoją nazwę">
+    <input type="text" id="playerName" placeholder="Put your name">
     <br/>
     ---------------------------------------------------------------------------
     <br/>
-    <button onclick="connectToRandom()">Dołącz losowo do stworzonej gry</button>
+    <button onclick="connectToRandom()">Connect to random game</button>
     <br/>
     ---------------------------------------------------------------------------
     <br/>
-    <input id="game_id" placeholder="Wklej id gry">
+    <input id="game_id" placeholder="Paste here game id">
     <br/>
     ---------------------------------------------------------------------------
     <br/>
-    <button>Dołącz do gry poprzez id</button>
+    <button>Connect to the game by id</button>
     <div id="message"></div>
     <ul id="gameBoard">
         <li class="tic" id="1"></li>
@@ -54,6 +54,7 @@
     </ul>
     <div class="clearfix"></div>
     <footer>
+        <button onclick="location.href = 'games-table.html'"> Check actual games </button>
     </footer>
 </div>
 <script src="js/script.js"></script>

@@ -17,6 +17,10 @@ import pl.polsl.tomasz.krypczyk.tictactoe.model.Move;
 import pl.polsl.tomasz.krypczyk.tictactoe.model.Player;
 import pl.polsl.tomasz.krypczyk.tictactoe.service.GameService;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.*;
+import java.util.Enumeration;
+
 
 /**
  * Game controler class as servlet
@@ -42,7 +46,13 @@ public class GameController {
      * @return new game entity to server as JSON
      */
     @PostMapping("/start")
-    public ResponseEntity<Game> start(@RequestBody Player player1) {
+    public ResponseEntity<Game> start(@RequestBody Player player1, HttpServletResponse response) {
+        Cookie userNameCookie = new Cookie("userName", player1.getPlayerName());
+        userNameCookie.setMaxAge(3600);
+        userNameCookie.setSecure(true);
+        userNameCookie.setHttpOnly(true);
+        userNameCookie.setPath("/");
+        response.addCookie(userNameCookie);
         return ResponseEntity.ok(gameService.createGame(player1));
     }
 
@@ -85,6 +95,4 @@ public class GameController {
         return ResponseEntity.ok(game);
 
     }
-
-
 }
