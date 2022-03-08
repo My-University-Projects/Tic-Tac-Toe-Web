@@ -1,5 +1,5 @@
 ## Tic-Tac-Toe-Web
-#Simple Tic Tac Toe web game created in MVC model.
+Simple Tic Tac Toe web game created in MVC model.
 What technologies i have used:
 - Spring Boot framework
 - PostgreSQL for database system
@@ -9,3 +9,5 @@ As a player we have few options:
 - Create own game with the game id and wait for other players to join 
 - Join to random game without two players already
 - Join to concrete game by id of the game
+Since I don't have much to tell about the game itself and its logic, I present screenshots from the game below:
+
