@@ -1,5 +1,5 @@
 # Tic-Tac-Toe-Web
-Simple Tic Tac Toe web game created in MVC model.
+## Simple Tic Tac Toe web game created in MVC model.
 What technologies i have used:
 - Spring Boot framework
 - PostgreSQL for database system
