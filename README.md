@@ -15,7 +15,7 @@ As a player we have few options:
 - Join to random game without two players already
 - Join to concrete game by id of the game
 
-Since I don't have much to tell about the game itself and its logic, I present screenshots from the game below
+# Since I don't have much to tell about the game itself and its logic, I present screenshots from the game below
 
 Main menu of the game - there player can create own game or join to already created game
 ![image](https://user-images.githubusercontent.com/93645494/157257779-30896523-7a2c-4d5d-9df7-873d42a30732.png)
