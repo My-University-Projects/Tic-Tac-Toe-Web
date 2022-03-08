@@ -18,7 +18,7 @@ As a player we have few options:
 Since I don't have much to tell about the game itself and its logic, I present screenshots from the game below
 
 Main menu of the game - there player can create own game or join to already created game
-![image](https://user-images.githubusercontent.com/93645494/157257779-30896523-7a2c-4d5d-9df7-873d42a30732.png
+![image](https://user-images.githubusercontent.com/93645494/157257779-30896523-7a2c-4d5d-9df7-873d42a30732.png)
 
 Info when player has created game
 ![image](https://user-images.githubusercontent.com/93645494/157257977-c2b3232f-5ae9-4c20-b1b7-d94a2a09c995.png)
