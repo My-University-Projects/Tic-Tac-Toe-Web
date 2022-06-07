@@ -53,6 +53,7 @@ public class GameController {
         userNameCookie.setHttpOnly(true);
         userNameCookie.setPath("/");
         response.addCookie(userNameCookie);
+
         return ResponseEntity.ok(gameService.createGame(player1));
     }
 
@@ -89,9 +90,9 @@ public class GameController {
      */
     @PostMapping("/move")
     public ResponseEntity<Game> move(@RequestBody Move request) throws GameNotFoundException {
-
         Game game = gameService.move(request);
         simpMessagingTemplate.convertAndSend("/topic/game-progress/" + game.getGameId(), game);
+
         return ResponseEntity.ok(game);
 
     }

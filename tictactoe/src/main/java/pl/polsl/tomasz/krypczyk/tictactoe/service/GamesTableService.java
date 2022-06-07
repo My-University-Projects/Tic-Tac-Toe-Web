@@ -9,7 +9,6 @@ import pl.polsl.tomasz.krypczyk.tictactoe.model.GameTableRow;
 import pl.polsl.tomasz.krypczyk.tictactoe.repository.GameRepository;
 import pl.polsl.tomasz.krypczyk.tictactoe.storage.GameStorage;
 
-import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,58 +24,59 @@ public class GamesTableService {
 
     /**
      * Method that creates list of table rows for web page table
+     *
      * @return List of table rows
      */
-    public ArrayList<GameTableRow> createGamesList(){
+    public ArrayList<GameTableRow> createGamesList() {
 
         ArrayList<GameTableRow> gamesList = new ArrayList<>();
         GameStorage gameStorage = getInstance();
 
-        if(gameStorage.getGames().isEmpty()) {
+        if (gameStorage.getGames().isEmpty()) {
             return gamesList;
         }
         int id = 1;
-        for(var el : gameStorage.getGames().values()){
-            if(!el.getGameStatus().equals(GameStatus.FINISHED)){
+        gameStorage.getGames().values().forEach(v -> {
+            if (!v.getGameStatus().equals(GameStatus.FINISHED)) {
                 GameTableRow gameTableRow = new GameTableRow();
-                gameTableRow.setFirstPlayerName(el.getPlayer1().getPlayerName());
-                gameTableRow.setSecondPlayerName(el.getPlayer2().getPlayerName());
-                gameTableRow.setGameStatus(el.getGameStatus());
+                gameTableRow.setFirstPlayerName(v.getPlayer1().getPlayerName());
+                gameTableRow.setSecondPlayerName(v.getPlayer2().getPlayerName());
+                gameTableRow.setGameStatus(v.getGameStatus());
                 gameTableRow.setId(id);
                 gamesList.add(gameTableRow);
                 id += 1;
             }
-        }
-        //gamesList = fillGamesList();
+        });
         return gamesList;
     }
 
-    private ArrayList<GameTableRow> fillGamesList(){
+    private ArrayList<GameTableRow> fillGamesList() {
         ArrayList<GameTableRow> gamesList = new ArrayList<>();
         List<GameInfo> gameInfoList = gameRepository.getAll();
         int id = 1;
-        for(GameInfo el : gameInfoList){
+        gameInfoList.forEach(gil -> {
             GameTableRow gameTableRow = new GameTableRow();
             gameTableRow.setId(id);
-            gameTableRow.setFirstPlayerName(el.getFirstPlayerName());
-            gameTableRow.setSecondPlayerName(el.getSecondPlayerName());
-            gameTableRow.setGameStatus(toGameStatus(el.getStatus()));
+            gameTableRow.setFirstPlayerName(gil.getFirstPlayerName());
+            gameTableRow.setSecondPlayerName(gil.getSecondPlayerName());
+            gameTableRow.setGameStatus(toGameStatus(gil.getStatus()));
             gamesList.add(gameTableRow);
-        }
+        });
         return gamesList;
     }
 
     /**
      * Simple convert to GameStatus enum method
+     *
      * @param gameStatus game status as string
      * @return game status as enum
      */
-    private GameStatus toGameStatus(String gameStatus){
-        switch (gameStatus){
+    private GameStatus toGameStatus(String gameStatus) {
+        switch (gameStatus) {
             case "STARTED" -> {
                 return GameStatus.STARTED;
             }
-            case "IN_PROGRESS" ->{
+            case "IN_PROGRESS" -> {
                 return GameStatus.IN_PROGRESS;
             }
             default -> {

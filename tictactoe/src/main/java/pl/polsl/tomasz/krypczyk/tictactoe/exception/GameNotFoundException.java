@@ -6,6 +6,6 @@ package pl.polsl.tomasz.krypczyk.tictactoe.exception;
 public class GameNotFoundException extends Exception {
 
     public GameNotFoundException() {
-        super("Nie znaleziono gry!");
+        super("Game not found!");
     }
 }

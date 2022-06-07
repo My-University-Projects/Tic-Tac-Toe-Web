@@ -64,7 +64,7 @@ class BoardTest {
         String position = "";
 
         //WHEN
-       boolean result = board.checkIfEmpty(position);
+       boolean result = board.isEmpty(position);
 
         //THEN
         assertTrue(result);
@@ -81,7 +81,7 @@ class BoardTest {
         String position = "X";
 
         //WHEN
-        boolean result = board.checkIfEmpty(position);
+        boolean result = board.isEmpty(position);
 
         //THEN
         assertFalse(result);

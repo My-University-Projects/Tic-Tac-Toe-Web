@@ -4,6 +4,7 @@ import pl.polsl.tomasz.krypczyk.tictactoe.model.Game;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Singleton class that contains information about all games
@@ -32,7 +33,7 @@ public class GameStorage {
      * @return instance of the game storage
      */
     public static synchronized GameStorage getInstance() {
-        if (instance == null) {
+        if (Objects.isNull(instance)) {
             instance = new GameStorage();
         }
         return instance;

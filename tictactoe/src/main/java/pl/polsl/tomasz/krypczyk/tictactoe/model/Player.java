@@ -27,6 +27,7 @@ public class Player {
 
     /**
      * method that adds new position to the positions list
+     *
      * @param position taken position 1 - 9
      */
     public void addPosition(int position) {
@@ -35,14 +36,16 @@ public class Player {
 
     }
 
-    public String positionsToString(){
-        String positionsToString = "";
-        if(this.positions.isEmpty() == true){
-            return positionsToString;
+    public String positionsToString() {
+        StringBuilder positionsToString = new StringBuilder();
+        if (this.positions.isEmpty()) {
+            return positionsToString.toString();
         }
-        for(Integer el : this.positions){
-            positionsToString += (el.toString() + " ");
-        }
-        return positionsToString;
+
+        this.positions.forEach(p -> {
+            positionsToString.append(p.toString()).append(" ");
+        });
+
+        return positionsToString.toString();
     }
 }

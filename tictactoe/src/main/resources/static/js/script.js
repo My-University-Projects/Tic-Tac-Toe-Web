@@ -46,10 +46,10 @@ function displayResponse(data) {
         }
     }
     if (data.winnersName != null) {
-        alert("Zwyciężył " + data.winnersName + "!");
+        alert("The winner is " + data.winnersName + "!");
     }
     else if(data.roundCount > 9){
-        alert("Mamy remis!");
+        alert("Draw!");
     }
     gameOn = true;
 }

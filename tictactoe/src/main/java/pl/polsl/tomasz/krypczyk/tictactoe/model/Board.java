@@ -2,8 +2,9 @@ package pl.polsl.tomasz.krypczyk.tictactoe.model;
 
 import lombok.Data;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Class representanting a game board model
@@ -14,7 +15,7 @@ public class Board {
     /**
      * 2D array with signs X or O
      */
-    private String[][] board;
+    private List<List<String>> board;
 
     /**
      * constructor of the board
@@ -26,14 +27,8 @@ public class Board {
     /**
      * Method that creates empty board
      */
-    private void createEmptyBoard()
-    {
-        this.board = new String[3][3];
-        for (int i = 0; i < 3; i++) {
-           for(int j = 0; j < 3; j++){
-               board[i][j] = "";
-           }
-        }
+    private void createEmptyBoard() {
+        this.board = Arrays.asList(Arrays.asList("", "", ""), Arrays.asList("", "", ""), Arrays.asList("", "", ""));
     }
 
     /**
@@ -44,13 +39,12 @@ public class Board {
      */
     public int calculateColumn(int position) {
 
-        int column = switch (position) {
+        return switch (position) {
             case 1, 4, 7 -> 0;
             case 2, 5, 8 -> 1;
             case 3, 6, 9 -> 2;
             default -> -1;
         };
-        return column;
     }
 
     /**
@@ -60,8 +54,8 @@ public class Board {
      * @param position that players wants to put sign on
      * @return boolean true if positon is empty
      */
-    public boolean checkIfEmpty(String position) {
-        return position == "";
+    public boolean isEmpty(String position) {
+        return Objects.equals(position, "");
     }
 
     /**
@@ -77,8 +71,8 @@ public class Board {
         if (el <= 3 && el >= 1) {
             row = 0;
             column = this.calculateColumn(el);
-            if (checkIfEmpty(this.board[row][column])) {
-                this.board[row][column] =  player.getSign();
+            if (isEmpty(this.board.get(row).get(column))) {
+                this.board.get(row).set(column, player.getSign());
                 result = true;
             } else {
                 result = false;
@@ -86,8 +80,8 @@ public class Board {
         } else if (el <= 6 && el >= 4) {
             row = 1;
             column = this.calculateColumn(el);
-            if (checkIfEmpty(this.board[row][column])) {
-                this.board[row][column] =  player.getSign();
+            if (isEmpty(this.board.get(row).get(column))) {
+                this.board.get(row).set(column, player.getSign());
                 result = true;
             } else {
                 result = false;
@@ -95,8 +89,8 @@ public class Board {
         } else if (el <= 9 && el >= 7) {
             row = 2;
             column = this.calculateColumn(el);
-            if (checkIfEmpty(this.board[row][column])) {
-                this.board[row][column] =  player.getSign();
+            if (isEmpty(this.board.get(row).get(column))) {
+                this.board.get(row).set(column, player.getSign());
                 result = true;
             } else {
                 result = false;

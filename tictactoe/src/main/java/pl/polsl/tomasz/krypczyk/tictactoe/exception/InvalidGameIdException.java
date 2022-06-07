@@ -6,6 +6,6 @@ package pl.polsl.tomasz.krypczyk.tictactoe.exception;
 public class InvalidGameIdException extends Exception {
 
     public InvalidGameIdException() {
-        super("Błędne Id gry!");
+        super("Wrong game ID!");
     }
 }

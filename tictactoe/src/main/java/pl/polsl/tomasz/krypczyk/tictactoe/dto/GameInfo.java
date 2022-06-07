@@ -1,13 +1,10 @@
 package pl.polsl.tomasz.krypczyk.tictactoe.dto;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-
 import javax.persistence.*;
 
 import static javax.persistence.GenerationType.SEQUENCE;
 
-@Entity(name ="Game")
+@Entity(name = "Game")
 @Table
 public class GameInfo {
 
@@ -59,9 +56,7 @@ public class GameInfo {
     )
     private String status;
 
-    //@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    //@JoinColumn(name = "moves_id", referencedColumnName = "id")
-   @OneToOne(mappedBy = "game", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "game", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Moves moves;
 
 
@@ -114,10 +109,6 @@ public class GameInfo {
 
     public void setSecondPlayerName(String secondPlayerName) {
         this.secondPlayerName = secondPlayerName;
-    }
-
-    public String getGameUUID() {
-        return gameUUID;
     }
 
     public void setGameUUID(String gameUUID) {
